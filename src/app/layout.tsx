@@ -1,9 +1,8 @@
 import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
+import { Linkedin, Github } from 'lucide-react'
 
-import { Github } from '@/shared/assets/github'
-import { Linkedin } from '@/shared/assets/linkedin'
 import { Nav } from '@/shared/components/layout/nav'
 
 import './globals.css'
@@ -30,7 +29,7 @@ export default function RootLayout({ children }: Readonly<Props>) {
       <body>
         <div className="min-h-screen bg-black text-secondary antialiased">
           <header className="w-full fixed top-0 p-12 flex justify-between items-center font-semibold">
-            <div className="group min-w-[120px]">
+            <div className="group min-w-[140px]">
               <p className="group-hover:hidden w-full">
                 Tymur <span className="text-white">Biedukhin</span>
               </p>
@@ -73,7 +72,7 @@ export default function RootLayout({ children }: Readonly<Props>) {
               rel="noreferrer"
               className="hover:text-white"
             >
-              <Github />
+              <Github size={20} />
             </a>
             <a
               href="https://www.linkedin.com/in/tymur-biedukhin-19b408167/"
@@ -81,7 +80,7 @@ export default function RootLayout({ children }: Readonly<Props>) {
               rel="noreferrer"
               className="hover:text-white"
             >
-              <Linkedin />
+              <Linkedin size={20} />
             </a>
           </div>
         </div>
