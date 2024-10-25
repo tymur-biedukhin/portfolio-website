@@ -1,4 +1,4 @@
-import { Mail, Send, Linkedin, Github } from 'lucide-react'
+import { Mail, Send, Linkedin, FileText } from 'lucide-react'
 
 export default function () {
   return (
@@ -11,7 +11,7 @@ export default function () {
           className="flex flex-col items-center gap-2 p-6 border border-border rounded-lg min-w-[400px] hover:text-white"
         >
           <Linkedin size={36} className="text-accent" />
-          <span>Linkedin</span>
+          <span className="font-medium">Linkedin</span>
         </a>
         <a
           href="mailto:bedumur@gmail.com"
@@ -19,7 +19,7 @@ export default function () {
         >
           <Mail size={36} className="text-accent" />
 
-          <span>bedumur@gmail.com</span>
+          <span className="font-medium">bedumur@gmail.com</span>
         </a>
         <a
           href="https://telegram.me/biedukhin"
@@ -28,16 +28,16 @@ export default function () {
           className="flex flex-col items-center gap-2 p-6 border border-border rounded-lg min-w-[400px] hover:text-white"
         >
           <Send size={36} className="text-accent" />
-          <span>Telegram</span>
+          <span className="font-medium">Telegram</span>
         </a>
         <a
-          href="https://github.com/tymur-biedukhin"
+          href="https://cv.djinni.co/cd/6bcfed365a6d6f4c0dbc8bfa30b1c7/CV-BIedukhin.pdf"
           target="_blank"
           rel="noreferrer"
           className="flex flex-col items-center gap-2 p-6 border border-border rounded-lg min-w-[400px] hover:text-white"
         >
-          <Github size={36} className="text-accent" />
-          <span>Github</span>
+          <FileText size={36} className="text-accent" />
+          <span className="font-medium">Resume</span>
         </a>
       </div>
     </div>
