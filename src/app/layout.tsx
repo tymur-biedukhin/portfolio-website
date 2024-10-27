@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
-import { Linkedin, Github } from 'lucide-react'
+import { Linkedin, Github, Mail, Send } from 'lucide-react'
 
 import { Nav } from '@/shared/components/layout/nav'
 
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: Readonly<Props>) {
     <html lang="en" className={roboto.className}>
       <body>
         <div className="min-h-screen bg-black text-secondary antialiased">
-          <header className="w-full fixed top-0 p-12 flex justify-between items-center font-semibold">
+          <header className="w-full bg-black/70 z-10 fixed top-0 p-12 flex justify-between items-center font-semibold">
             <div className="group min-w-[140px]">
               <p className="group-hover:hidden w-full">
                 Tymur <span className="text-white">Biedukhin</span>
@@ -49,16 +49,19 @@ export default function RootLayout({ children }: Readonly<Props>) {
           <main> {children}</main>
           <footer className="w-full fixed bottom-0 p-12 flex">
             <div className="flex flex-col gap-0.5 text-sm leading-7">
-              <a href="mailto:bedumur@gmail.com" className="hover:text-white">
-                Email: bedumur@gmail.com
+              <a
+                href="mailto:bedumur@gmail.com"
+                className="flex gap-1.5 items-center hover:text-white"
+              >
+                <Mail size={14} /> bedumur@gmail.com
               </a>
               <a
                 href="https://telegram.me/biedukhin"
                 target="_blank"
                 rel="noreferrer"
-                className="hover:text-white"
+                className="flex gap-1.5 items-center hover:text-white"
               >
-                Telegram: @biedukhin
+                <Send size={14} /> @biedukhin
               </a>
             </div>
           </footer>
