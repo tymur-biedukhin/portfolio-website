@@ -18,7 +18,14 @@ export default function Home() {
           <span>I build</span>
           <TypeAnimation
             preRenderFirstString
-            sequence={['web apps', 1500, 'solutions', 3000, 'web3 dapps', 1500]}
+            sequence={[
+              'web apps',
+              1500,
+              'solutions',
+              3000,
+              'innovations',
+              1500,
+            ]}
             repeat={Number.POSITIVE_INFINITY}
             className="text-accent"
           />

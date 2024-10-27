@@ -12,6 +12,12 @@ const navLinks = [
   { title: 'Contact', href: Routes.CONTACT },
 ]
 
+const isActive = (pathname: string, route: string) => {
+  if (route === Routes.HOME) return pathname === route
+
+  return pathname.includes(route)
+}
+
 export const Nav = () => {
   const pathname = usePathname()
 
@@ -23,7 +29,8 @@ export const Nav = () => {
             <Link
               className={cn(
                 'inline-flex items-center w-full px-4 h-10 hover:text-white',
-                pathname === link.href && 'text-accent hover:text-accent',
+                isActive(pathname, link.href) &&
+                  'text-accent hover:text-accent',
               )}
               href={link.href}
             >
