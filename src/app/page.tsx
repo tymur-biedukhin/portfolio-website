@@ -1,5 +1,6 @@
 'use client'
 
+import { ArrowRight } from 'lucide-react'
 import { TypeAnimation } from 'react-type-animation'
 
 import { Routes } from '@/shared/navigation'

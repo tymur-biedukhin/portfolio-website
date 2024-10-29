@@ -28,7 +28,7 @@ export default function RootLayout({ children }: Readonly<Props>) {
     <html lang="en" className={roboto.className}>
       <body>
         <div className="min-h-screen bg-black text-secondary antialiased">
-          <header className="w-full bg-black/70 z-10 fixed top-0 p-12 flex justify-between items-center font-semibold">
+          <header className="w-full bg-black/70 z-20 fixed top-0 p-12 flex justify-between items-center font-semibold">
             <div className="group min-w-[140px]">
               <p className="group-hover:hidden w-full">
                 Tymur <span className="text-white">Biedukhin</span>
@@ -46,7 +46,7 @@ export default function RootLayout({ children }: Readonly<Props>) {
             </div>
             <Nav />
           </header>
-          <main> {children}</main>
+          <main>{children}</main>
           <footer className="w-full fixed bottom-0 p-12 flex">
             <div className="flex flex-col gap-0.5 text-sm leading-7">
               <a
