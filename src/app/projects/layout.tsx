@@ -5,5 +5,9 @@ interface Props {
 }
 
 export default function ({ children }: Props) {
-  return <div className="w-3/5 mx-auto pt-36 pb-20">{children}</div>
+  return (
+    <div className="max-sm:w-full relative sm:w-3/5 sm:mx-auto lg:z-10">
+      {children}
+    </div>
+  )
 }

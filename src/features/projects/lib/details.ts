@@ -158,7 +158,7 @@ export const details: Record<string, ProjectDetails> = {
   },
   '7': {
     id: '7',
-    title: 'Comfidence estate',
+    title: 'Comfidence',
     status: 'Closed',
     domain: 'Real estate',
     company: 'Comfidence estate',

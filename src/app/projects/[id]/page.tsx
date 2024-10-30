@@ -29,9 +29,9 @@ export default function () {
 
   return (
     <div className="space-y-16">
-      <div className="flex items-center justify-between">
+      <div className="max-sm:gap-6 max-sm:flex-col-reverse flex items-center justify-between">
         <h1 className="text-6xl font-medium text-primary">{project.title}</h1>
-        <div className="flex gap-6 items-center">
+        <div className="max-sm:w-full max-sm:justify-between flex gap-6 items-center">
           <Link
             href={DynamicRoutes.PROJECT_DETAILS(getPrev(params.id))}
             className="flex items-center gap-1.5 hover:text-primary"
@@ -74,7 +74,7 @@ export default function () {
             ))}
           </div>
         </section>
-        <section className="min-w-[120px] space-y-8">
+        <section className="max-lg:hidden min-w-[120px] space-y-8">
           <h2 className="font-medium text-2xl text-primary">Details</h2>
           <div className="space-y-6">
             <div className="flex flex-col gap-1">
@@ -101,7 +101,9 @@ export default function () {
               )}
             </div>
             <div className="flex flex-col gap-1">
-              <span className="font-medium text-primary">Duration</span>
+              <span className="font-medium text-primary">
+                Contract duration
+              </span>
               <span className="text-sm">{project.duration}</span>
             </div>
             {project.link && (

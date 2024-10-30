@@ -28,8 +28,8 @@ export default function RootLayout({ children }: Readonly<Props>) {
     <html lang="en" className={roboto.className}>
       <body>
         <div className="min-h-screen bg-black text-secondary antialiased">
-          <header className="w-full bg-black/70 z-20 fixed top-0 p-12 flex justify-between items-center font-semibold">
-            <div className="group min-w-[140px]">
+          <header className="w-full bg-black/70 z-20 fixed top-0 max-sm:p-8 sm:p-12 flex justify-between items-center font-semibold">
+            <div className="relative group z-20 min-w-[140px]">
               <p className="group-hover:hidden w-full">
                 Tymur <span className="text-white">Biedukhin</span>
               </p>
@@ -46,8 +46,10 @@ export default function RootLayout({ children }: Readonly<Props>) {
             </div>
             <Nav />
           </header>
-          <main>{children}</main>
-          <footer className="w-full fixed bottom-0 p-12 flex">
+          <main className="min-h-screen max-sm:pt-24 sm:pt-36 pb-40 max-sm:px-8 flex justify-center">
+            {children}
+          </main>
+          <footer className="max-sm:justify-center bg-black/70 w-full fixed bottom-0 p-8 sm:p-12 flex">
             <div className="flex flex-col gap-0.5 text-sm leading-7">
               <a
                 href="mailto:bedumur@gmail.com"
@@ -59,13 +61,31 @@ export default function RootLayout({ children }: Readonly<Props>) {
                 href="https://telegram.me/biedukhin"
                 target="_blank"
                 rel="noreferrer"
-                className="flex gap-1.5 items-center hover:text-white"
+                className="max-sm:justify-center flex gap-1.5 items-center hover:text-white"
               >
                 <Send size={14} /> @biedukhin
               </a>
+              <div className="flex items-center justify-center gap-4 mt-4 sm:hidden">
+                <a
+                  href="https://github.com/tymur-biedukhin"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-white"
+                >
+                  <Github size={20} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/tymur-biedukhin-19b408167/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-white"
+                >
+                  <Linkedin size={20} />
+                </a>
+              </div>
             </div>
           </footer>
-          <div className="fixed bottom-12 right-12 flex flex-col items-center justify-center gap-6 text-sm">
+          <div className="max-sm:hidden fixed bottom-12 right-12 flex flex-col items-center justify-center gap-6 text-sm">
             <div className="mb-24 rotate-90 after:absolute after:right-[-72px] after:top-1/2 after:w-12 after:h-px after:bg-secondary">
               <span>Follow me</span>
             </div>

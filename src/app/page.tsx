@@ -1,6 +1,5 @@
 'use client'
 
-import { ArrowRight } from 'lucide-react'
 import { TypeAnimation } from 'react-type-animation'
 
 import { Routes } from '@/shared/navigation'
@@ -8,15 +7,16 @@ import { Routes } from '@/shared/navigation'
 export default function Home() {
   return (
     <>
-      <h1 className="z-10 absolute bottom-12 left-[calc(20%+2.5rem)] text-xl text-primary font-light max-w-[560px]">
+      <h1 className="max-lg:hidden z-10 absolute bottom-12 left-[calc(20%+2.5rem)] text-xl text-primary font-light max-w-[560px]">
         Hello, I’m{' '}
         <span className="text-accent font-bold">Tymur Biedukhin</span>, Web
         Engineer since <span className="text-accent font-bold">2017</span> based
         in Lisbon, Portugal.
       </h1>
-      <div className="h-screen w-screen flex flex-col gap-4 justify-center items-center font-medium">
-        <div className="flex gap-4 text-6xl text-primary">
+      <div className="absolute top-0 h-screen w-screen flex flex-col gap-4 justify-center items-center font-medium">
+        <div className="space-x-4 text-6xl text-primary max-sm:text-center">
           <span>I build</span>
+          <br className="sm:hidden" />
           <TypeAnimation
             preRenderFirstString
             sequence={[
@@ -28,7 +28,7 @@ export default function Home() {
               1500,
             ]}
             repeat={Number.POSITIVE_INFINITY}
-            className="text-accent"
+            className="text-accent whitespace-nowrap"
           />
         </div>
         <a

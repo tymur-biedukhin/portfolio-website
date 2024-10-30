@@ -15,7 +15,7 @@ export const previews: ProjectPreview[] = [
   },
   {
     id: '7',
-    title: 'Comfidence estate',
+    title: 'Comfidence',
     description: 'Commercial real estate agency website',
     coverImg: '/projects/comfidence/main.webp',
   },

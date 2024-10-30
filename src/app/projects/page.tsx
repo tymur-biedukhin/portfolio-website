@@ -1,12 +1,19 @@
-import { ProjectPreview, previews } from '@/features/projects'
+import { ProjectPreview, previews as previewsMock } from '@/features/projects'
+import { useIsMobile } from '@/shared/lib/use-is-mobile'
 
-const middle = Math.ceil(previews.length / 2)
+const middle = Math.ceil(previewsMock.length / 2)
 
 export default function () {
+  const isMobile = useIsMobile()
+
+  const previews = isMobile
+    ? previewsMock.filter((mock) => mock.title !== 'NDA')
+    : previewsMock
+
   return (
     <>
       <h1 className="text-6xl font-medium text-primary">Projects</h1>
-      <div className="relative z-10 grid grid-cols-2 gap-6 pt-16">
+      <div className="grid sm:grid-cols-2 gap-6 pt-16">
         <div className="grid gap-6">
           {previews.slice(0, middle).map((project, idx) => (
             <ProjectPreview key={project.id} project={project} />
