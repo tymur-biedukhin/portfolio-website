@@ -231,6 +231,29 @@ export const details: Record<string, ProjectDetails> = {
     ],
     companyLink: 'https://www.kansocode.com/',
   },
+  '18': {
+    id: '18',
+    title: 'Range Finance',
+    status: 'Closed',
+    domain: 'Crypto',
+    company: 'Range Finance',
+    duration: '1 months',
+    description:
+      'Next-generation decentralized liquidity aggregator and yield optimizer built on The Open Network (TON). It enhances capital efficiency, liquidity provisioning, and automated yield strategies while leveraging TON’s high-speed, low-cost transactions.',
+    techStack: [
+      'React.js',
+      'Typescript',
+      'Tailwind CSS',
+      'TON SDK',
+      'shadcn/ui',
+    ],
+    images: [
+      '/projects/range/1.webp',
+      '/projects/range/2.webp',
+      '/projects/range/3.webp',
+      '/projects/range/4.webp',
+    ],
+  },
 }
 
 export const itemsCount = Object.keys(details).length

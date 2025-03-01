@@ -8,6 +8,12 @@ export const previews: ProjectPreview[] = [
     coverImg: '/projects/bitsten/spot.webp',
   },
   {
+    id: '18',
+    title: 'Range Finance',
+    description: 'TON DEX with concentrated liquidity',
+    coverImg: '/projects/range/1.webp',
+  },
+  {
     id: '4',
     title: 'Bigcommerce',
     description: 'E-commerce store constructor',
