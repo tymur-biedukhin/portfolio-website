@@ -19,7 +19,7 @@ export const details: Record<string, ProjectDetails> = {
     status: 'Ongoing',
     domain: 'Crypto',
     company: 'Localtrade',
-    duration: '6 months',
+    duration: '12 months',
     description:
       'The premier platform for trading, investing, and managing a wide range of digital assets. Designed to cater to both novice traders and seasoned investors, exchange offers a seamless, secure, and user-friendly experience, enabling everyone to navigate the dynamic world of cryptocurrencies with confidence. ',
     techStack: [

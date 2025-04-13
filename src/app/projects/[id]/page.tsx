@@ -1,11 +1,9 @@
-'use client'
-
-import { useParams, redirect } from 'next/navigation'
+import { use } from 'react'
+import { redirect } from 'next/navigation'
 import { ArrowLeft, ArrowRight, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
-import Image from 'next/image'
 
-import { details, itemsCount } from '@/features/projects'
+import { details, ImageCarousel, itemsCount } from '@/features/projects'
 import { DynamicRoutes, Routes } from '@/shared/navigation'
 
 const getPrev = (current: string) => {
@@ -20,10 +18,14 @@ const getNext = (current: string) => {
   return num + 1 > itemsCount ? 1 : num + 1
 }
 
-export default function () {
-  const params: { id: string } = useParams()
+interface Props {
+  params: Promise<{ id: string }>
+}
 
-  const project = details[params.id as keyof typeof details]
+export default function ({ params }: Props) {
+  const p = use(params)
+
+  const project = details[p.id as keyof typeof details]
 
   if (!project) redirect(Routes.PROJECTS)
 
@@ -33,13 +35,13 @@ export default function () {
         <h1 className="text-6xl font-medium text-primary">{project.title}</h1>
         <div className="max-sm:w-full max-sm:justify-between flex gap-6 items-center">
           <Link
-            href={DynamicRoutes.PROJECT_DETAILS(getPrev(params.id))}
+            href={DynamicRoutes.PROJECT_DETAILS(getPrev(p.id))}
             className="flex items-center gap-1.5 hover:text-primary"
           >
             <ArrowLeft size={20} />
           </Link>
           <Link
-            href={DynamicRoutes.PROJECT_DETAILS(getNext(params.id))}
+            href={DynamicRoutes.PROJECT_DETAILS(getNext(p.id))}
             className="flex items-center gap-1.5 hover:text-primary"
           >
             <ArrowRight size={20} />
@@ -48,6 +50,8 @@ export default function () {
       </div>
       <div className="flex gap-12">
         <section className="flex-1 space-y-8">
+          <ImageCarousel title={project.title} images={project.images} />
+
           <h2 className="font-medium text-2xl text-primary">Description</h2>
           <div className="space-y-4">
             <p>{project.description}</p>
@@ -61,17 +65,6 @@ export default function () {
                 </span>
               ))}
             </div>
-          </div>
-          <div className="space-y-6">
-            {project.images.map((img, idx) => (
-              <Image
-                key={img}
-                src={img}
-                alt={`${project.title} image ${idx + 1}`}
-                width={800}
-                height={800}
-              />
-            ))}
           </div>
         </section>
         <section className="max-lg:hidden min-w-[120px] space-y-8">
