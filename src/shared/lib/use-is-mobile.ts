@@ -1,5 +1,6 @@
+import { use } from 'react'
 import { headers } from 'next/headers'
 
 export const useIsMobile = () => {
-  return headers().get('X-Is-Mobile') === 'true'
+  return use(headers()).get('X-Is-Mobile') === 'true'
 }
