@@ -1,8 +1,11 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import useEmblaCarousel from 'embla-carousel-react'
+
+import { cn } from '@/shared/lib/style-utils'
 
 interface Props {
   title: string
@@ -11,6 +14,20 @@ interface Props {
 
 export const ImageCarousel = ({ title, images }: Props) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+
+  const [selected, setSelected] = useState(0)
+
+  useEffect(() => {
+    if (!emblaApi) return
+
+    const onSelect = () => setSelected(emblaApi.selectedScrollSnap())
+
+    emblaApi.on('select', onSelect)
+
+    return () => {
+      emblaApi.off('select', onSelect)
+    }
+  }, [emblaApi])
 
   return (
     <div className="group relative">
@@ -29,7 +46,7 @@ export const ImageCarousel = ({ title, images }: Props) => {
         <ChevronRight size={24} />
       </button>
       <div ref={emblaRef} className="overflow-x-hidden">
-        <div className="flex gap-4 h-[480px] w-full">
+        <div className="flex gap-4 w-full">
           {images.map((img, idx) => (
             <Image
               key={img}
@@ -37,10 +54,24 @@ export const ImageCarousel = ({ title, images }: Props) => {
               alt={`${title} image ${idx + 1}`}
               width={480}
               height={480}
-              className="w-full"
+              className="w-full h-[300px]"
+              priority={idx === 0}
             />
           ))}
         </div>
+      </div>
+      <div className="flex gap-1 justify-center mt-4">
+        {images.map((_, idx) => (
+          <button
+            key={_}
+            type="button"
+            className={cn(
+              'transition size-1.5 bg-secondary rounded-sm',
+              selected === idx && 'bg-primary w-3',
+            )}
+            onClick={() => emblaApi?.scrollTo(idx)}
+          />
+        ))}
       </div>
     </div>
   )
