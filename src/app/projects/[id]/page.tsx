@@ -7,15 +7,15 @@ import { details, ImageCarousel, itemsCount } from '@/features/projects'
 import { DynamicRoutes, Routes } from '@/shared/navigation'
 
 const getPrev = (current: string) => {
-  const num = Number.parseInt(current)
+  const next = Number.parseInt(current) - 1
 
-  return num - 1 < 1 ? itemsCount : num - 1
+  return next < 1 ? itemsCount - 1 : next
 }
 
 const getNext = (current: string) => {
-  const num = Number.parseInt(current)
+  const next = Number.parseInt(current) + 1
 
-  return num + 1 > itemsCount ? 1 : num + 1
+  return next > itemsCount - 1 ? 1 : next
 }
 
 interface Props {
