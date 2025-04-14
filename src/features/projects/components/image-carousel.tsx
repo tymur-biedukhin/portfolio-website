@@ -54,7 +54,7 @@ export const ImageCarousel = ({ title, images }: Props) => {
               alt={`${title} image ${idx + 1}`}
               width={480}
               height={480}
-              className="w-full h-[300px]"
+              className="w-full h-[300px] first:ml-4"
               priority={idx === 0}
             />
           ))}
